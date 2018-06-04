@@ -53,7 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\camMovement.cs" />
      <Compile Include="Assets\Scripts\erikaScript.cs" />
+     <Compile Include="Assets\Scripts\gravityScript.cs" />
      <Compile Include="Assets\Scripts\movement.cs" />
+     <Compile Include="Assets\Scripts\rotationScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

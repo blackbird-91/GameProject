@@ -308,10 +308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8cbb0392807d94982665c35bc85671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1820928726}
-  trackedObject: {fileID: 1039633318}
-  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 2076443737}
+  cameraTracker: {fileID: 1537143484}
+  offsetBehindPlayer: 2
+  offsetAbovePlayer: 0.5
   angularOffset: {x: 0, y: 0, z: 0}
+  smoothFactor: 2
 --- !u!4 &712333750
 Transform:
   m_ObjectHideFlags: 0
@@ -336,7 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6266cf0ccba6184499bc284651c39f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charPosition: {fileID: 1039633318}
   erikaAnimController: {fileID: 1789044562}
+  lerpFactor: 5
+  camFollow: {fileID: 1537143484}
+  cameraTransform: {fileID: 2076443737}
 --- !u!1 &829430172
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +426,34 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 5850e47d3f91195429aaf831e8dc073b, type: 3}
   m_PrefabInternal: {fileID: 1789044558}
+--- !u!1 &1537143483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1537143484}
+  m_Layer: 0
+  m_Name: camTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1537143484
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537143483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.611, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1039633318}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737767801
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +624,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!95 &1789044562 stripped
@@ -634,10 +668,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.253, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2076443737}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2076443732
 GameObject:
@@ -722,9 +755,9 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2076443732}
   m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 2.3, z: -2.2}
+  m_LocalPosition: {x: -0.414, y: 4.553, z: -4.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1820928726}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
