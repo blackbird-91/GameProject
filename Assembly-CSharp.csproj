@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\gravityScript.cs" />
      <Compile Include="Assets\Scripts\movement.cs" />
      <Compile Include="Assets\Scripts\rotationScript.cs" />
+     <None Include="Assets\MedievalTownExteriors\Readme.txt" />
+     <None Include="Assets\Mega Fantasy Props Pack\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
