@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\camMovement.cs" />
+     <Compile Include="Assets\Scripts\charInput.cs" />
      <Compile Include="Assets\Scripts\erikaScript.cs" />
      <Compile Include="Assets\Scripts\gravityScript.cs" />
-     <Compile Include="Assets\Scripts\movement.cs" />
      <Compile Include="Assets\Scripts\rotationScript.cs" />
      <None Include="Assets\MedievalTownExteriors\Readme.txt" />
      <None Include="Assets\Mega Fantasy Props Pack\README.txt" />

@@ -1,13 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\charInput.cs">
     <Files>
       <File FileName="Assets\Scripts\camMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\movement.cs" Line="57" Column="88" />
+      <File FileName="Assets\Scripts\charInput.cs" Line="112" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Assets\Scripts\charInput.cs" line="63" offsetX="564" offsetY="992" expression="erikaState" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

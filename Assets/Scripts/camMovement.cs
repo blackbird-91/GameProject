@@ -26,8 +26,9 @@ public class camMovement : MonoBehaviour {
 
 //		target.position = Vector3.Lerp (target.position, targetPosition, Time.deltaTime * smoothFactor);
 		target.position = Vector3.SmoothDamp (target.position, targetPosition, ref camVelocity, dampTime);
-		//target.eulerAngles = cameraTracker.transform.eulerAngles + angularOffset;
-		target.LookAt(cameraTracker);
+		Quaternion diff = Quaternion.LookRotation (cameraTracker.position - targetPosition);
+		target.rotation = Quaternion.Slerp (target.rotation, diff, dampTime);
+//		target.LookAt(cameraTracker);
 
 
 //		#region playerLookat
