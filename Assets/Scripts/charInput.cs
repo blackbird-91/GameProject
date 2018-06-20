@@ -11,8 +11,6 @@ public class charInput : MonoBehaviour {
 	float currentSpeed = 0.0f;
 	float currentDirection = 0.0f;
 	[SerializeField]
-	private Transform camFollow;
-	[SerializeField]
 	private Transform cameraTransform;
 	[SerializeField]
 	private Rigidbody erikaBody;
@@ -30,14 +28,12 @@ public class charInput : MonoBehaviour {
 	private RaycastHit hit;
 
 
-	private float rotationDegreesPerSecond = 120.0f;
 	private Vector3 MoveDirection = Vector3.zero;
-	private bool isCharGrounded = true;
+//	private bool isCharGrounded = true;
 	private CapsuleCollider erikaCollider;
 //	private Vector3 colHeight;
 	private float colHeight;
-	float oldY = 0.0f;
-	float jumpPos = 0.0f;
+//	float jumpPos = 0.0f;
 	Vector3 colliderCenter = Vector3.zero;
 	private bool jumpPressed = false;
 
@@ -47,6 +43,11 @@ public class charInput : MonoBehaviour {
 	static int jumpState = Animator.StringToHash("Jump");
 	static int fallState = Animator.StringToHash("fall a loop");
 	static int fallLandState = Animator.StringToHash("fall a land to idle");
+
+	// weapon properties
+	private bool weaponDrawn = false;
+	private bool arrowDrawn = false;
+	private float weaponCharge = 0.0f;
 
 	AnimatorStateInfo erikaState;
 
@@ -86,7 +87,13 @@ public class charInput : MonoBehaviour {
 			jumpPressed = true;
 		}
 
-
+		if (Input.GetButton ("Fire1") && !arrowDrawn) {
+			erikaAnimController.SetTrigger ("drawArrow");
+			arrowDrawn = true;
+		} else if (arrowDrawn && Input.GetButtonUp("Fire1")) {
+			erikaAnimController.SetTrigger ("releaseArrow");
+			arrowDrawn = false;
+		}
 	}
 
 	void FixedUpdate()
@@ -96,8 +103,7 @@ public class charInput : MonoBehaviour {
 		charPosition.rotation = Quaternion.Slerp(charPosition.rotation, newRotation, 3.0f * Time.fixedDeltaTime);
 
 		erikaState = erikaAnimController.GetCurrentAnimatorStateInfo(0);
-//		print (erikaState.shortNameHash);
-		isCharGrounded = isGrounded();
+		isGrounded();
 //						colHeight.y = erikaAnimController.GetFloat("colliderHeight");
 		if (!erikaAnimController.IsInTransition(0)){
 			if (jumpPressed) {
@@ -107,8 +113,7 @@ public class charInput : MonoBehaviour {
 			}
 			if (erikaState.shortNameHash == jumpState || erikaState.shortNameHash == fallState) {
 				if (erikaState.shortNameHash != fallState) {
-					oldY = erikaBody.transform.position.y;
-					jumpPos = erikaAnimController.GetFloat ("JumpCurve") * jumpMultiplier;
+//					jumpPos = erikaAnimController.GetFloat ("JumpCurve") * jumpMultiplier;
 //					erikaBody.transform.Translate (Vector3.up * jumpPos);
 					erikaBody.transform.Translate (Vector3.forward * jumpDistance * Time.fixedDeltaTime);
 				}
@@ -143,15 +148,15 @@ public class charInput : MonoBehaviour {
 	}
 
 
-	bool isGrounded()
+	void isGrounded()
 	{
 		Ray downRay = new Ray (erikaCollider.bounds.min, -erikaBody.transform.up);
 		if (Physics.Raycast (downRay, out hit, 20f)) {
 			fallDistance = hit.distance;
 			if (hit.distance <= 0.2f && hit.collider.CompareTag ("Floor"))
-				return true;
+				return;
 		}
-		return false;
+		return;
 	}
 //	void LateUpdate()
 //	{
